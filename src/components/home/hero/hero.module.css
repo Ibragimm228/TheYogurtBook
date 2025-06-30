@@ -1,0 +1,213 @@
+.hero-container {
+    display: grid;
+    height: 750px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 18px;
+    grid-template-areas:
+        'Area1 Area1 Area4 Area3 Area8 Area8'
+        'Area1 Area1 Area5 Area3 Area9 Area10'
+        'Area2 Area2 Area6 Area7 Area9 Area11';
+    padding: 24px;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 25%, #475569 50%, #334155 75%, #1e293b 100%);
+    border-radius: 24px;
+    box-shadow: 
+        0 25px 50px rgba(15, 23, 42, 0.4),
+        0 0 0 1px rgba(148, 163, 184, 0.2),
+        inset 0 1px 0 rgba(148, 163, 184, 0.1);
+    border: 2px solid #475569;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, 
+        #0f172a 0%, 
+        #1e293b 15%, 
+        #334155 30%, 
+        #475569 45%, 
+        #64748b 60%, 
+        #475569 75%, 
+        #334155 90%, 
+        #0f172a 100%);
+    background-size: 300% 100%;
+    animation: phantomFlow 4s infinite ease-in-out;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.5);
+}
+
+.hero-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(71, 85, 105, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(51, 65, 85, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+@keyframes phantomFlow {
+    0%, 100% { 
+        background-position: 0% 50%;
+        opacity: 0.8;
+    }
+    50% { 
+        background-position: 100% 50%;
+        opacity: 1;
+    }
+}
+
+.hero-container > div {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    background: linear-gradient(145deg, #1e293b, #334155);
+    border: 2px solid rgba(71, 85, 105, 0.3);
+    box-shadow: 
+        0 8px 25px rgba(15, 23, 42, 0.3),
+        inset 0 1px 0 rgba(148, 163, 184, 0.1);
+}
+
+.hero-container > div:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 25px 60px rgba(15, 23, 42, 0.4),
+        0 0 0 1px rgba(148, 163, 184, 0.3),
+        inset 0 1px 0 rgba(148, 163, 184, 0.2);
+    border-color: #64748b;
+}
+
+.hero-container > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(71, 85, 105, 0.1) 30%, 
+        rgba(100, 116, 139, 0.15) 50%, 
+        rgba(71, 85, 105, 0.1) 70%, 
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.hero-container > div:hover::before {
+    opacity: 1;
+}
+
+/* Особые стили для главных карточек */
+.hero-container > div:nth-child(1),
+.hero-container > div:nth-child(2) {
+    background: linear-gradient(145deg, #0f172a, #1e293b, #334155);
+    border: 3px solid #475569;
+    box-shadow: 
+        0 12px 35px rgba(15, 23, 42, 0.4),
+        0 0 0 1px rgba(71, 85, 105, 0.3),
+        inset 0 2px 0 rgba(148, 163, 184, 0.15);
+}
+
+.hero-container > div:nth-child(1):hover,
+.hero-container > div:nth-child(2):hover {
+    border-color: #64748b;
+    box-shadow: 
+        0 30px 70px rgba(15, 23, 42, 0.5),
+        0 0 0 1px rgba(100, 116, 139, 0.4),
+        inset 0 2px 0 rgba(148, 163, 184, 0.25);
+    background: linear-gradient(145deg, #0f172a, #1e293b, #475569);
+}
+
+/* Особый эффект мерцания для выделенных карточек */
+.hero-container > div:nth-child(1)::after,
+.hero-container > div:nth-child(2)::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #475569, #64748b, #475569);
+    border-radius: 18px;
+    z-index: -1;
+    opacity: 0;
+    animation: phantomGlow 3s infinite ease-in-out;
+}
+
+@keyframes phantomGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.3; }
+}
+
+@media (max-width: 1024px) {
+    .hero-container {
+        height: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 200px);
+        grid-template-areas:
+            'Area1 Area1 Area3'
+            'Area1 Area1 Area4'
+            'Area2 Area5 Area6'
+            'Area7 Area8 Area9';
+        gap: 14px;
+        padding: 20px;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-container {
+        display: grid;
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(11, 180px);
+        grid-template-areas:
+            'Area1 Area1'
+            'Area1 Area1'
+            'Area1 Area1'
+            'Area2 Area3'
+            'Area2 Area4'
+            'Area5 Area4'
+            'Area5 Area4'
+            'Area6 Area7'
+            'Area8 Area9'
+            'Area8 Area10'
+            'Area11 Area10';
+        gap: 12px;
+        padding: 16px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(11, 150px);
+        grid-template-areas:
+            'Area1'
+            'Area2'
+            'Area3'
+            'Area4'
+            'Area5'
+            'Area6'
+            'Area7'
+            'Area8'
+            'Area9'
+            'Area10'
+            'Area11';
+        gap: 10px;
+        padding: 12px;
+        background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+    }
+}

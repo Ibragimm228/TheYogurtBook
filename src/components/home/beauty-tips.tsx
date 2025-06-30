@@ -7,7 +7,7 @@ export const BeautyTips: FC = () => {
 	const types = [...new Set(articles?.map(article => article.type))]
 
 	return (
-		<section className='py-16 bg-white relative overflow-hidden'>
+		<section className='py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 relative overflow-hidden'>
 			{/* Декоративные элементы фона */}
 			<div className='absolute top-0 left-0 w-full h-full opacity-5'>
 				<div className='absolute top-20 left-10 w-32 h-32 bg-slate-600 rounded-full blur-3xl'></div>
@@ -37,7 +37,7 @@ export const BeautyTips: FC = () => {
 							key={index}
 							className='card-wrapper rounded-asymmetric transform hover:scale-105 transition-all duration-500 group'
 						>
-							<div className='card-content bg-white shadow-xl border border-slate-200 overflow-hidden relative'>
+							<div className='card-content bg-slate-800/50 shadow-xl border border-slate-700 overflow-hidden relative'>
 								{/* Декоративная анимированная полоска */}
 								<div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-600 via-slate-700 to-slate-600 group-hover:h-2 transition-all duration-300'></div>
 								
@@ -74,7 +74,7 @@ export const BeautyTips: FC = () => {
 
 				{/* Дополнительная информация */}
 				<div className='text-center mt-16'>
-					<div className='max-w-4xl mx-auto p-8 bg-slate-50 rounded-2xl border border-slate-200 relative overflow-hidden'>
+					<div className='max-w-4xl mx-auto p-8 bg-slate-800/50 rounded-2xl border border-slate-700 relative overflow-hidden'>
 						{/* Декоративные элементы */}
 						<div className='absolute top-0 right-0 w-32 h-32 bg-slate-600/5 rounded-full transform translate-x-16 -translate-y-16'></div>
 						<div className='absolute bottom-0 left-0 w-24 h-24 bg-slate-700/5 rounded-full transform -translate-x-12 translate-y-12'></div>

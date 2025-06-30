@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 
 export function Footer() {
 	return (
-		<footer className='bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white py-12 mt-8 relative overflow-hidden'>
+		<footer className='bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white py-12 relative overflow-hidden'>
 			{/* Декоративные элементы фона */}
 			<div className='absolute top-0 left-0 w-full h-full opacity-10'>
 				<div className='absolute top-0 left-20 w-32 h-32 bg-slate-400 rounded-full blur-3xl'></div>
